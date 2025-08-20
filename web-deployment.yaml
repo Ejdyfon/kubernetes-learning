@@ -5,7 +5,6 @@ metadata:
     app: synergychat-web
   name: synergychat-web
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: synergychat-web
@@ -18,3 +17,6 @@ spec:
         - image: bootdotdev/synergychat-web:latest
           name: synergychat-web
           resources: {}
+          envFrom:
+            - configMapRef:
+                name: synergychat-web-configmap
